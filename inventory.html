@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Pokémon Inventory</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>My Inventory</h1>
+  <div id="inventory"></div>
+
+  <br>
+  <a href="index.html">Back to Pack Opening</a>
+
+  <script>
+    // Load from localStorage
+    const inventoryDiv = document.getElementById("inventory");
+    let inventory = JSON.parse(localStorage.getItem("inventory")) || [];
+
+    if (inventory.length === 0) {
+      inventoryDiv.innerHTML = "<p>No cards yet! Open some packs.</p>";
+    } else {
+      inventory.forEach(card => {
+        const img = document.createElement("img");
+        img.src = card;
+        img.className = "card-small";
+        inventoryDiv.appendChild(img);
+      });
+    }
+  </script>
+</body>
+</html>
