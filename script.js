@@ -25,13 +25,11 @@ function openPack() {
   displayArea.innerHTML = ""; // clear display
   const packCards = [];
 
-  // pick 10 random cards
   for (let i = 0; i < 10; i++) {
     const randomCard = cardPool[Math.floor(Math.random() * cardPool.length)];
     packCards.push(randomCard);
   }
 
-  // Show 1 by 1, then grid
   let index = 0;
   const interval = setInterval(() => {
     displayArea.innerHTML = "";
