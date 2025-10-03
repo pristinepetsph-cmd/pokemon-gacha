@@ -3,8 +3,12 @@ const cardPool = [
   "images/cards/charmander.png",
   "images/cards/squirtle.png",
   "images/cards/pikachu.png",
-  "images/cards/mewtwo.png"
-  // 👉 add all your uploaded images here
+  "images/cards/mewtwo.png",
+  "images/cards/eevee.png",
+  "images/cards/snorlax.png",
+  "images/cards/gengar.png",
+  "images/cards/jigglypuff.png",
+  "images/cards/dragonite.png"
 ];
 
 const buyPackBtn = document.getElementById("buyPack");
