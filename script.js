@@ -13,16 +13,11 @@ const cardPool = [
 
 const buyPackBtn = document.getElementById("buyPack");
 const displayArea = document.getElementById("displayArea");
-const inventoryDiv = document.getElementById("inventory");
-
-// Load saved inventory
-let inventory = JSON.parse(localStorage.getItem("inventory")) || [];
-renderInventory();
 
 buyPackBtn.addEventListener("click", openPack);
 
 function openPack() {
-  displayArea.innerHTML = ""; // clear display
+  displayArea.innerHTML = "";
   const packCards = [];
 
   for (let i = 0; i < 10; i++) {
@@ -45,10 +40,10 @@ function openPack() {
     }
   }, 1200);
 
-  // Save to inventory
+  // Save to inventory (localStorage)
+  let inventory = JSON.parse(localStorage.getItem("inventory")) || [];
   inventory = inventory.concat(packCards);
   localStorage.setItem("inventory", JSON.stringify(inventory));
-  renderInventory();
 }
 
 function showGrid(cards) {
@@ -63,13 +58,4 @@ function showGrid(cards) {
   });
 
   displayArea.appendChild(grid);
-}
-
-function renderInventory() {
-  inventoryDiv.innerHTML = "";
-  inventory.forEach(card => {
-    const img = document.createElement("img");
-    img.src = card;
-    inventoryDiv.appendChild(img);
-  });
 }
